@@ -63,36 +63,36 @@ export const EditablePlane = () => {
 
     indicesToUpdate.forEach((i) => {
       if (newHeightMap[i] < 0.5) {
-        newHeightMap[i] += 0.02;
+        newHeightMap[i] += 0.04;
       }
-      //@ts-ignore
+      //@ts-expect-error planref stuff
       const vertices = planeRef.current.geometry.attributes.position.array;
       vertices[i * 3 + 2] = newHeightMap[i];
     });
 
-    //@ts-ignore
+    //@ts-expect-error planref stuff
     indicesToUpdate.forEach(({ index: i, distance }) => {
       const influence = Math.max(0, 1 - distance / 100);
 
       if (newHeightMap[i] < 0.5) {
         newHeightMap[i] += influence * 0.1;
       }
-      //@ts-ignore
+      //@ts-expect-error planref stuff
       const vertices = planeRef.current.geometry.attributes.position.array;
       vertices[i * 3 + 2] = newHeightMap[i];
     });
 
     setHeightMap(newHeightMap);
 
-    //@ts-ignore
+    //@ts-expect-error planref stuff
     planeRef.current.geometry.computeVertexNormals();
-    //@ts-ignore
+    //@ts-expect-error planref stuff
     planeRef.current.geometry.attributes.position.needsUpdate = true;
   };
 
   return (
     <mesh
-      //@ts-ignore
+      //@ts-expect-error planref stuff
       ref={planeRef}
       position={[0, 0, 0]}
       rotation={[-Math.PI / 2, 0, 0]}
