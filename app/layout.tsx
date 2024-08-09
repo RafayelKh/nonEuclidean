@@ -9,8 +9,8 @@ import StyledComponentsRegistry from "./registry"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "3dfa.st",
-  description: "Animate your 3D website in 5 minutes",
+  title: "WAVYY",
+  description: "some really WAVYY stuff",
 }
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
